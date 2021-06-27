@@ -68,21 +68,24 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             cursor.moveToFirst();
-            while (true)
+            while (cursor.isAfterLast())
             {
                 todo_id.add(cursor.getString(0));
                 todo_title.add(cursor.getString(1));
                 todo_disc.add(cursor.getString(2));
                 todo_time.add(cursor.getString(3));
-                if (cursor.isLast())
+               /* if (cursor.isLast() != cursor.isFirst())
                 {
                     todo_id.add(cursor.getString(0));
                     todo_title.add(cursor.getString(1));
                     todo_disc.add(cursor.getString(2));
                     todo_time.add(cursor.getString(3));
                   break;
-
                 }
+                else if (cursor.isLast() == cursor.isFirst())
+                {
+                    break;
+                }*/
                 cursor.moveToNext();
             }
         }

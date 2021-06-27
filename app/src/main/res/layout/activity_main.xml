@@ -42,7 +42,7 @@
             <TextView
                 android:id="@+id/subtitlepage"
                 android:textSize="18sp"
-                android:textColor="#4A4E6A"
+                android:textColor="#DBDDEC"
                 android:layout_marginTop="8dp"
                 android:text="Finish Them Quickly Today"
                 android:fontFamily="@font/montserrat_light"

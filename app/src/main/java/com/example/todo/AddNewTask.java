@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
@@ -27,7 +28,8 @@ public class AddNewTask extends AppCompatActivity {
     String time;
     private Calendar calendar;
     private AlarmManager alarmManager;
-    private PendingIntent pendingIntent;
+    private PendingIntent alarmpendingIntent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,9 +37,9 @@ public class AddNewTask extends AppCompatActivity {
         binding = ActivityNewTaskBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-        createNotificationChannel();
+      createNotificationChannel();
 
-        binding.btnSelectdate.setOnClickListener(new View.OnClickListener() {
+        binding.edtTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                  calendar=Calendar.getInstance();
@@ -54,7 +56,7 @@ public class AddNewTask extends AppCompatActivity {
                                 calendar.set(Calendar.HOUR_OF_DAY,hourOfDay);
                                 calendar.set(Calendar.MINUTE,minute);
 
-                                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yy-MM-dd HH:mm");
+                                SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MMM-yyyy hh:mm a");
 
                                 time = (simpleDateFormat.format(calendar.getTime()));
                                 binding.edtTime.setText(time);
@@ -75,14 +77,14 @@ public class AddNewTask extends AppCompatActivity {
                 mydb.addWork(binding.edtTitledoes.getText().toString().trim(),
                         binding.edtDescdoes.getText().toString().trim(),time
                 );
-                setAlarm();
+                setAlarm(calendar);
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void createNotificationChannel() {
+    public void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
         {
             CharSequence name  = "ToDoNotificationChannel";
@@ -90,15 +92,17 @@ public class AddNewTask extends AppCompatActivity {
             int importance  = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel1 = new NotificationChannel("BasicTodoAlarm", name, importance);
             channel1.setDescription(description);
-
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel1);
         }
     }
-
-    void setAlarm ()
+    public void setAlarm (Calendar calendar1)
     {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        
+        Intent alarmIntent = new Intent(AddNewTask.this,AlarmReceiver.class);
+        alarmpendingIntent = PendingIntent.getBroadcast(AddNewTask.this, 0, alarmIntent, 0);
+        alarmManager.set(AlarmManager.RTC_WAKEUP,calendar1.getTimeInMillis(),alarmpendingIntent);
+
     }
+
 }

@@ -79,4 +79,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         return true;
     }
+
+    public void deleteData(String todo_title,String todo_desc,String todo_date)
+    {
+        instance = new MyDatabaseHelper(context);
+        SQLiteDatabase db = instance.getWritableDatabase();
+        db.delete(TABLE_NAME, "todo_title = ? AND todo_description = ? AND todo_time = ?", new String[] {todo_title,todo_desc,todo_date});
+        db.close();
+    }
 }
