@@ -50,7 +50,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
                 intent.putExtra("todo_description", String.valueOf(todo_disc.get(position)) );
                 intent.putExtra("todo_time", String.valueOf(todo_time.get(position)) );
                 intent.putExtra("todo_id", String.valueOf(todo_id.get(position)) );
-                activity.startActivityForResult(intent,1);
+               activity.startActivityForResult(intent,1);
 
             }
 
@@ -74,5 +74,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             item_layout = itemView.findViewById(R.id.item_layout);
 
         }
+    }
+
+    public void refreshAdapter( ArrayList todo_title, ArrayList todo_disc, ArrayList todo_time)
+    {
+        this.todo_title=todo_title;
+        this.todo_disc=todo_disc;
+        this.todo_time=todo_time;
+        notifyDataSetChanged();
     }
 }

@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         customAdapter = new CustomAdapter(MainActivity.this,getApplicationContext(),todo_id,todo_title,todo_disc,todo_time);
         binding.recyclerview.setAdapter(customAdapter);
         binding.recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        customAdapter.refreshAdapter(todo_title,todo_disc,todo_time);
     }
 
     @Override
@@ -68,24 +69,17 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             cursor.moveToFirst();
-            while (cursor.isAfterLast())
+            while (true)
             {
                 todo_id.add(cursor.getString(0));
                 todo_title.add(cursor.getString(1));
                 todo_disc.add(cursor.getString(2));
                 todo_time.add(cursor.getString(3));
-               /* if (cursor.isLast() != cursor.isFirst())
+               if (cursor.isLast() )
                 {
-                    todo_id.add(cursor.getString(0));
-                    todo_title.add(cursor.getString(1));
-                    todo_disc.add(cursor.getString(2));
-                    todo_time.add(cursor.getString(3));
                   break;
                 }
-                else if (cursor.isLast() == cursor.isFirst())
-                {
-                    break;
-                }*/
+
                 cursor.moveToNext();
             }
         }
