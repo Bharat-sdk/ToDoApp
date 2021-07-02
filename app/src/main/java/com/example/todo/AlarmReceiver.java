@@ -2,6 +2,7 @@ package com.example.todo;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -12,14 +13,15 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 public class AlarmReceiver extends BroadcastReceiver {
-    @Override
 
+    @Override
     public void onReceive(Context context, Intent intent) {
+
         String title = intent.getStringExtra("title");
         Intent i = new Intent(context,MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,0,i,0);
 
+       PendingIntent pendingIntent = PendingIntent.getActivity(context,0,i,0);
         Log.d("TAG", "onReceive: "+ title);
 
         NotificationCompat.Builder builder = new  NotificationCompat.Builder(context,"BasicTodoAlarm")
@@ -31,6 +33,6 @@ public class AlarmReceiver extends BroadcastReceiver {
                  .setContentIntent(pendingIntent);
 
       NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(context);
-        notificationManagerCompat.notify(123444,builder.build());
+        notificationManagerCompat.notify(127,builder.build());
     }
 }

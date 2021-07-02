@@ -66,7 +66,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         }
         return cursor;
     }
-//String row_id,
+
     public boolean updateData (String row_id,String todo_title,String todo_desc,String todo_date)
     {
         instance = new MyDatabaseHelper(context);
