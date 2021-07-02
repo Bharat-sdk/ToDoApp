@@ -78,7 +78,7 @@ public class AddNewTask extends AppCompatActivity {
                 mydb.addWork(binding.edtTitledoes.getText().toString().trim(),
                         binding.edtDescdoes.getText().toString().trim(),time
                 );
-                setAlarm(calendar);
+                setAlarm(calendar,binding.edtTitledoes.getText().toString().trim());
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 startActivity(intent);
             }
@@ -96,13 +96,15 @@ public class AddNewTask extends AppCompatActivity {
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel1);
         }
+
     }
-    public void setAlarm (Calendar calendar1)
+    public void setAlarm (Calendar calendar1,String title)
     {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent alarmIntent = new Intent(AddNewTask.this,AlarmReceiver.class);
+        alarmIntent.putExtra("title",title);
         alarmpendingIntent = PendingIntent.getBroadcast(AddNewTask.this, 0, alarmIntent, 0);
-        alarmManager.set(AlarmManager.RTC_WAKEUP,calendar1.getTimeInMillis(),alarmpendingIntent);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar1.getTimeInMillis(),alarmpendingIntent);
 
     }
 
