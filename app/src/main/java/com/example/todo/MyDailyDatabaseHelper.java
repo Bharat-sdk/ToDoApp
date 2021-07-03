@@ -39,16 +39,18 @@ public class MyDailyDatabaseHelper  extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void addItem(String name, int qty_of_purchase )
+    void addItem(String name, int qty_of_purchase , int qty_of_monthly_purchase )
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
         cv.put(COLUNM_ITEM_NAME,name);
         cv.put(COLUNM_QUANTITY_OF_PURCHASE,qty_of_purchase);
-
+        cv.put(COLUNM_QUANTITY_OF_MONTHLY_PURCHASE,qty_of_monthly_purchase);
         db.insert(TABLE_NAME,null,cv);
     }
+
+
     Cursor readData ()
     {
         String query = "SELECT * FROM " + TABLE_NAME;
@@ -62,14 +64,13 @@ public class MyDailyDatabaseHelper  extends SQLiteOpenHelper {
         return cursor;
     }
     //String row_id,
-    public boolean updateDailyData (String todo_qt_of_purchase,String item_name)
+    void updateDailyData (String todo_qt_of_purchase,String item_name)
     {
         instance = new MyDailyDatabaseHelper(context);
         SQLiteDatabase db = instance.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(COLUNM_QUANTITY_OF_PURCHASE,todo_qt_of_purchase);
         db.update(TABLE_NAME,cv,"todo_item = ? ",new String[] {item_name});
-        return true;
     }
 }
 

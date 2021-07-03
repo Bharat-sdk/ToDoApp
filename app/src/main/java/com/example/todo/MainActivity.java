@@ -29,15 +29,6 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-
-       binding.btnAddNew.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Intent intent = new Intent(getApplicationContext(),AddNewTask.class);
-               startActivity(intent);
-           }
-       });
-
         mydb = new MyDatabaseHelper(MainActivity.this);
         todo_title = new ArrayList<>();
         todo_disc = new ArrayList<>();
@@ -49,6 +40,25 @@ public class MainActivity extends AppCompatActivity {
         binding.recyclerview.setAdapter(customAdapter);
         binding.recyclerview.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         customAdapter.refreshAdapter(todo_title,todo_disc,todo_time);
+
+
+       binding.btnAddNew.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(getApplicationContext(),AddNewTask.class);
+               startActivity(intent);
+           }
+       });
+
+       binding.btnGoToDailyTask.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(getApplicationContext(),DailyDoesActivity.class);
+               startActivity(intent);
+           }
+       });
+
+
     }
 
     @Override

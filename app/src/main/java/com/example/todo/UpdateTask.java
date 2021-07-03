@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
@@ -28,12 +29,10 @@ ActivityUpdateTaskBinding binding;
     private AlarmManager alarmManager;
     private PendingIntent alarmpendingIntent;
 Calendar calendar;
-CreateNotificationChannelAndSetAlarm createNotificationChannelAndSetAlarm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_task);
-        AddNewTask  addNewTask = new AddNewTask();
 
         binding = ActivityUpdateTaskBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -136,8 +135,9 @@ CreateNotificationChannelAndSetAlarm createNotificationChannelAndSetAlarm;
     {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent alarmIntent = new Intent(UpdateTask.this,AlarmReceiver.class);
-        alarmpendingIntent = PendingIntent.getBroadcast(UpdateTask.this, 0, alarmIntent, 0);
-        alarmManager.set(AlarmManager.RTC_WAKEUP,calendar1.getTimeInMillis(),alarmpendingIntent);
+        alarmIntent.putExtra("title",title);
+        alarmpendingIntent = PendingIntent.getBroadcast(UpdateTask.this, calendar1.get(Calendar.HOUR)+calendar1.get(Calendar.MILLISECOND)+calendar1.get(Calendar.SECOND), alarmIntent, PendingIntent.FLAG_ONE_SHOT);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar1.getTimeInMillis(),alarmpendingIntent);
 
     }
 }

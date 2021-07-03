@@ -103,7 +103,6 @@ public class AddNewTask extends AppCompatActivity {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent alarmIntent = new Intent(AddNewTask.this,AlarmReceiver.class);
         alarmIntent.putExtra("title",title);
-        Log.d("TAG", "setAlarm: "+ title);
         alarmpendingIntent = PendingIntent.getBroadcast(AddNewTask.this, calendar1.get(Calendar.HOUR)+calendar1.get(Calendar.MILLISECOND)+calendar1.get(Calendar.SECOND), alarmIntent, PendingIntent.FLAG_ONE_SHOT);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar1.getTimeInMillis(),alarmpendingIntent);
 

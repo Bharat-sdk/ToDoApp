@@ -18,6 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddNewTask" />
+        <activity android:name=".AddDailyTask"/>
+        <activity android:name=".DailyDoesActivity">
+        </activity>
+        <activity android:name=".UpdateDailyQuantity"/>
         <receiver android:name=".AlarmReceiver"/>
     </application>
 
