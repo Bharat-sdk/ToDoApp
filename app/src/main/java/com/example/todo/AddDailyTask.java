@@ -61,6 +61,14 @@ public class AddDailyTask extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),DailyDoesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

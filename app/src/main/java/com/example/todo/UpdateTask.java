@@ -91,6 +91,13 @@ Calendar calendar;
             }
         });
 
+        binding.btnCancel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoMainActivity();
+            }
+        });
+
     }
 
     void setDataToEditTxt()

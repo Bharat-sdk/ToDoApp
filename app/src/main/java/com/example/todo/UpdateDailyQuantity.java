@@ -9,13 +9,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.todo.databinding.ActivityDailyTodoBinding;
 import com.example.todo.databinding.ActivityUpdateDailyTaskBinding;
-import com.example.todo.databinding.AddDailyTodoTaskBinding;
-
 import java.util.Calendar;
 
 public class UpdateDailyQuantity extends AppCompatActivity {

@@ -83,6 +83,14 @@ public class AddNewTask extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void createNotificationChannel() {
