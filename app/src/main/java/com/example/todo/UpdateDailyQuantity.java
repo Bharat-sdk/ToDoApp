@@ -66,6 +66,16 @@ public class UpdateDailyQuantity extends AppCompatActivity {
                 gotoMainActivity();
             }
         });
+
+        binding.btnDeleteItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getValuesFromEditText();
+                MyDailyDatabaseHelper mydb = new MyDailyDatabaseHelper(getApplicationContext());
+                mydb.deleteData(item_name1);
+                gotoMainActivity();
+            }
+        });
     }
 
     void setDataToEditTxt()

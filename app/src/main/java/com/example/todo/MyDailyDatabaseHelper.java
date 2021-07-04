@@ -72,6 +72,16 @@ public class MyDailyDatabaseHelper  extends SQLiteOpenHelper {
         cv.put(COLUNM_QUANTITY_OF_PURCHASE,todo_qt_of_purchase);
         db.update(TABLE_NAME,cv,"todo_item = ? ",new String[] {item_name});
     }
+
+    public void deleteData(String item_name)
+    {
+        instance = new MyDailyDatabaseHelper(context);
+        SQLiteDatabase db = instance.getWritableDatabase();
+        db.delete(TABLE_NAME, "todo_item = ?", new String[] {item_name});
+        db.close();
+
+    }
+
 }
 
 

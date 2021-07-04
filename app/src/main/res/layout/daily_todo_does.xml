@@ -10,11 +10,11 @@
         <TextView
             android:id="@+id/daily_item"
             android:layout_width="wrap_content"
-            android:layout_height="28dp"
+            android:layout_height="wrap_content"
             android:text="Buy whiskas"
             android:layout_marginStart="30dp"
             android:textColor="#000C5D"
-            android:textSize="24sp" />
+            android:textSize="28sp" />
         <TextView
             android:id="@+id/quantity_of_monthly_purchase"
             android:layout_width="wrap_content"
@@ -29,10 +29,22 @@
             android:textSize="28sp"
             android:textColor="#F63EA5"
             android:textStyle="bold"
-            android:text="Tomorrow"
-            android:gravity="right"
+            android:text="500"
+            android:gravity="end"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/label_kg"
+            android:textSize="28sp"
+            android:textColor="#F63EA5"
+            android:textStyle="bold"
+            android:text="KG"
+            android:gravity="end"
             android:layout_marginEnd="30dp"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
 </LinearLayout>

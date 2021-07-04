@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_marginLeft="16dp"
         android:orientation="vertical"
-        android:layout_width="220dp"
+        android:layout_width="210dp"
         android:layout_height="match_parent">
 
         <TextView
@@ -37,14 +37,16 @@
     <LinearLayout
         android:layout_marginTop="30dp"
         android:layout_width="125dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_marginEnd="20dp">
 
         <TextView
             android:id="@+id/datedoes"
             android:textSize="18sp"
             android:textColor="#F63EA5"
-            android:layout_marginTop="8dp"
             android:text="Tomorrow"
+            android:layout_marginRight="20dp"
             android:ems="10"
             android:gravity="right"
             android:layout_width="match_parent"
