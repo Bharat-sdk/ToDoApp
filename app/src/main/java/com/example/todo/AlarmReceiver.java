@@ -25,9 +25,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         Log.d("TAG", "onReceive: "+ title);
 
         NotificationCompat.Builder builder = new  NotificationCompat.Builder(context,"BasicTodoAlarm")
-                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setSmallIcon(R.drawable.app_logo)
                 .setContentTitle("Todo Reminder")
-                .setContentText(title)
+                .setContentText("You Have A Reminder Of \""+title+"\"")
                 .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                  .setContentIntent(pendingIntent);
