@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -65,7 +66,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView todo_title_txt,todo_description_txt,todo_time_txt;
-        LinearLayout item_layout;
+        ConstraintLayout item_layout;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             todo_title_txt = itemView.findViewById(R.id.titledoes);

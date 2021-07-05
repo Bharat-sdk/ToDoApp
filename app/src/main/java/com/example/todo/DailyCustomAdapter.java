@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -65,7 +66,7 @@ public class DailyCustomAdapter extends RecyclerView.Adapter<DailyCustomAdapter.
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView txt_item_name,txt_quantity_of_purchase,txt_quantity_of_monthly_purchase;
-        LinearLayout item_layout;
+        ConstraintLayout item_layout;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             txt_item_name = itemView.findViewById(R.id.daily_item);

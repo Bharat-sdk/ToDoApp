@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#3CBFFDF1"
+   >
 
     <LinearLayout
         android:orientation="vertical"
@@ -53,7 +54,7 @@
 
             <Button
                 android:layout_marginTop="35dp"
-                android:layout_marginLeft="60dp"
+                android:layout_marginLeft="40dp"
                 android:id="@+id/btnAddNew"
                 android:text="+"
                 android:background="@drawable/bgbtnnew"

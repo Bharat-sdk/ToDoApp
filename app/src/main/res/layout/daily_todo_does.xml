@@ -1,32 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/item_layout"
     android:layout_width="match_parent"
     android:background="@drawable/bgitemdoes"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:layout_height="100dp">
+    android:layout_marginBottom="20dp"
+    android:layout_height="80dp">
+
         <TextView
             android:id="@+id/daily_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buy whiskas"
             android:layout_marginStart="30dp"
+            android:text="Buy whiskas"
             android:textColor="#000C5D"
-            android:textSize="28sp" />
+            android:textSize="22sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
         <TextView
             android:id="@+id/quantity_of_monthly_purchase"
             android:layout_width="wrap_content"
-            android:layout_height="28dp"
-            android:layout_marginStart="30dp"
+            android:layout_height="wrap_content"
             android:textColor="#000C5D"
             android:visibility="invisible"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/daily_item"/>
 
         <TextView
             android:id="@+id/quantity_of_purchase"
-            android:textSize="28sp"
+            android:textSize="24sp"
             android:textColor="#F63EA5"
             android:textStyle="bold"
             android:text="500"
@@ -34,17 +40,23 @@
             android:layout_marginStart="45dp"
             android:layout_marginEnd="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/label_kg" />
 
         <TextView
             android:id="@+id/label_kg"
-            android:textSize="28sp"
+            android:textSize="24sp"
             android:textColor="#F63EA5"
             android:textStyle="bold"
             android:text="KG"
             android:gravity="end"
             android:layout_marginEnd="30dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
